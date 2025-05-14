@@ -31,7 +31,7 @@ The project consists of two main components:
 ## 🚀 How to Run the Project Locally
 
 ### Prerequisites
-Make sure you have Python 3.6+ installed and the following dependencies:
+Make sure you have Python 3.12 installed and the following dependencies:
 
 - Flask
 - TensorFlow/Keras
