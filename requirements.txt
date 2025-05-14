@@ -1,8 +1,8 @@
+Flask               # For web framework
+matplotlib          # For plotting (used in app)
+werkzeug            # For handling file uploads
+Pillow              # For image processing
+tensorflow          # Deep learning framework & install it through wsl for gpu support
+numpy               # Numerical computations
+requests            # For making HTTP requests
 
-Flask
-matplotlib
-werkzeug
-Pillow
-tensorflow
-numpy
-requests
