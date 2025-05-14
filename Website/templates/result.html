@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block title %}{{ breed_name }} - Breed Identification Result{% endblock %}
+
+{% block content %}
+<section class="result-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="result-card">
+                    <h1>Breed Identification Result</h1>
+                    
+                    <div class="row">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="result-image-container">
+                                <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded dog image" class="result-image">
+                                <div class="result-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Analyzed</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-7">
+                            <div class="prediction-result">
+                                <div class="prediction-header">
+                                    <h2>{{ breed_name.replace("_"," ") }}</h2>
+                                    <div class="confidence-badge">{{ confidence }}% Confidence</div>
+                                </div>
+                                
+                                <div class="confidence-bar">
+                                    <div class="confidence-progress" style="width: {{ confidence }}%;"></div>
+                                </div>
+                                
+                                {% if top_predictions %}
+                                <div class="other-predictions">
+                                    <h3>Other Possibilities</h3>
+                                    <ul class="prediction-list">
+                                        {% for pred in top_predictions %}
+                                        <li>
+                                            <span class="prediction-breed">{{ pred.breed }}</span>
+                                            <div class="prediction-confidence">
+                                                <div class="prediction-bar">
+                                                    <div class="prediction-progress" style="width: {{ pred.confidence }}%;"></div>
+                                                </div>
+                                                <span class="prediction-percentage">{{ pred.confidence }}%</span>
+                                            </div>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="breed-info">
+                        <h3>About {{ breed_name.replace("_"," ") }}</h3>
+                        <p>{{ breed_info["description"] }}</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <h4>Characteristics</h4>
+                                    <ul class="info-list">
+                                        <li>
+                                            <span>weight</span>
+                                            <span>{{ breed_info["weight"] }}</span>
+                                        </li>
+                                        <li>
+                                            <span>height</span>
+                                            <span>{{ breed_info["height"] }}</span>
+                                        </li>
+                                        <li>
+                                            <span>Temperament</span>
+                                            <span>{{ temperament }}</span>
+                                        </li>
+                                        <li>
+                                            <span>Lifespan</span>
+                                            <span>{{ breed_info["lifespan"] }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="info-card">
+                                    <h4>Ratings</h4>
+                                    <div class="rating-item">
+                                        <div class="rating-label">
+                                            <span>Friendliness</span>
+                                            <span>{{ breed_info.ratings.friendliness }}/5</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <div class="rating-progress" style="width: {{ breed_info.ratings.friendliness * 20 }}%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-item">
+                                        <div class="rating-label">
+                                            <span>Energy</span>
+                                            <span>{{ breed_info.ratings.energy }}/5</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <div class="rating-progress" style="width: {{ breed_info.ratings.energy * 20 }}%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-item">
+                                        <div class="rating-label">
+                                            <span>Trainability</span>
+                                            <span>{{ breed_info.ratings.trainability }}/5</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <div class="rating-progress" style="width: {{ breed_info.ratings.trainability * 20 }}%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="rating-item">
+                                        <div class="rating-label">
+                                            <span>Grooming</span>
+                                            <span>{{ breed_info.ratings.grooming }}/5</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <div class="rating-progress" style="width: {{ breed_info.ratings.grooming * 20 }}%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <a href="https://en.wikipedia.org/wiki/{{ breed_name.replace(' ', '_') }}" class="btn btn-outline-primary rounded-pill" target="_blank">
+                                <i class="fas fa-external-link-alt me-2"></i>Learn More
+                            </a>
+                            <a href="{{ url_for('index') }}" class="btn btn-primary rounded-pill">
+                                <i class="fas fa-redo me-2"></i>Try Another Image
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
