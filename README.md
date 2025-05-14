@@ -8,14 +8,14 @@ This project is a **Dog Breed Identification** system that allows users to uploa
 The project consists of two main components:
 1. **Model**: The machine learning model to classify dog breeds.
    - This folder contains the model file (e.g., `model.h5`), dataset, and training scripts.
-   
+   z
 2. **Website**: A Flask-based web application that allows users to upload a dog's image and receive breed predictions.
    - This folder contains the HTML, CSS, and Python scripts for the web app.
 
 ```
 📂 Project Structure:
 - `Model/`
-  - `dog_breed_model.h5` (Trained model file)
+  - `dog_breed_model.h5` (Trained model file) ( Colob link of the previous/old model :- https://drive.google.com/file/d/19p7W0j1rHks0MPs0LG-zdM1X1UL-BJ3W/view?usp=sharing)
   - `training_scripts/`
   - `dataset/`
 - `website/`
