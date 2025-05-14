@@ -57,7 +57,7 @@ Make sure you have Python 3.12 installed and the following dependencies:
    python website/app.py
    ```
 
-4. Open your browser and go to `http://127.0.0.1:5000/` to access the web application.
+4. Open your browser and go to `http://127.0.0.1:{Your Port Number}/` to access the web application.
 
 ---
 
@@ -69,7 +69,7 @@ The model used for breed identification is a **Convolutional Neural Network (CNN
 
 ## 📑 How to Use the Web App
 
-1. Open the app in your browser at `http://127.0.0.1:5000/`.
+1. Open the app in your browser at `http://127.0.0.1:{Your Port Number}/`.
 2. Click the **Upload Image** button to choose a dog image.
 3. The app will display the predicted breed of the dog along with any related information (if included).
 
